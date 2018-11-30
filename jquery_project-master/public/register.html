@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="register.css" />
+ </head>
+ <body>
+	<div class="header">
+		<img src="login/logo_v101.png"/>
+	</div>
+	<div class="body">
+		<div class="hb">
+			<a>新用户注册即可领取500元专享红包</a>
+		</div>
+		<div class="form">
+			<div class="left-form">
+				<div class="new-text"><a href="#">注册新用户</a></div>
+				<div class="input-form">
+					<div class="input-content">
+						<input type="text" placeholder="请输入常用手机号" id="phone" onblur="checkPhone()"/>
+						<span id="showPhone"></span>
+					</div>	
+					<div class="input-content">
+						<input type="text" placeholder="请输入图形验证码" id="tx_yzm"/>
+						<i><img src="img/VerifyImage.gif" alt="验证码" /></i>
+						<a href="#">换一换</a>
+						<span id="showtx_yzm"></span>
+					</div>	
+					
+					<div class="input-content" style="position:relative">
+						<input type="text" placeholder="请输入短信验证码" id="message_yzm" />
+						<a href="#" class="a-yzm">获取验证码</a>
+						<span id="showMessage-yzm"></span>
+					</div>	
+
+					<div class="input-content">
+						<input type="password" placeholder="请设置密码" id="upwd"/>
+						<span id="showUpwd"></span>
+					</div>	
+
+					<div class="input-content1">
+						<input type="checkbox" checked/>
+						<span>我已阅读并同意<a href="#">《尚品网用户协议》</a></span>
+					</div>
+					<div class="form-btn">
+						<input type="button" value="注册" class="btn" onclick="register()"/>
+					</div>
+					
+				</div>
+				
+			</div>
+		</div>
+		
+		<div class="right">
+ 			<div class="new-user">
+ 				<p>已有尚品网账号：</p>
+ 				<a href="login.html">直接登录<img src="login/go_login.png"></a>
+ 				
+ 			</div>
+ 			<div class="l-method">
+ 				<p>使用以下账号直接登录</p>
+ 				<p>
+ 					<a href="#"><img src="login/weibo.png"></a>
+ 					<a href="#"><img src="login/qq.png"></a>
+ 					<a href="#"><img src="login/zfb.png"></a>
+ 				</p>
+ 				<div class="spm">
+ 					<a href="#"><img src="login/download.png"></a>
+ 					<p>【扫码下载尚品APP】</p>
+ 				</div>
+ 			</div>
+ 		</div>
+ 		
+	</div>
+	<div class="footer">
+ 		<div>
+ 			<p class="lj">
+ 				<a href="#">关于尚品</a>
+ 				<a href="#">尚品新闻</a>
+ 				<a href="#">招聘信息</a>
+ 				<a href="#">品牌招商</a>
+ 				<a href="#">帮助中心</a>
+ 				<a href="#">联系我们</a>
+ 				<a href="#">友情链接</a>
+ 				<a href="#">网站地图</a>
+ 				<a href="#">搜索直通车</a>
+ 			</p>
+ 			<p class="last">京公网安备110105001984 &nbsp;京ICP备09087291号-2&npsp;京ICP证090703号&nbsp;Copyright&copy;2010-2016&nbsp;Shangpin.com&nbsp;All Right Reserved</p>
+			<div class="copy-tp">
+				<a href="#"><img src="img/cx.png" alt="" /></a>
+				<a href="#"><img src="img/foot3.png" alt="" /></a>
+				<a href="#"><img src="img/foot5.gif" alt="" /></a>
+				<a href="#"><img src="img/foot8.gif" alt="" /></a>
+				<a href="#"><img src="img/foot3.png" alt="" /></a>
+				<a href="#"><img src="img/foot11.gif" alt="" /></a>
+			</div>
+ 		</div>
+ 	</div>
+
+	<script src="common.js"></script>
+	<script>
+		 //声明全局变量，用于控制是否允许注册
+	   var isRegister=false;
+	  //异步请求：检查手机号是否存在
+		function checkPhone(){
+	    //1.创建xhr
+			var xhr=createXhr();
+			//2.监听
+
+			xhr.onreadystatechange=function(){
+			
+			  if(xhr.readyState==4&&xhr.status==200){
+				var res=xhr.responseText;
+				if(res=='手机号不能为空'){
+					$('showPhone').innerHTML="手机号不能为空";
+					isRegister=false;
+				}
+				else if(res=='1'){
+					$("showPhone").innerHTML="该手机号已被注册";
+					isRegister=false;
+				}
+				else if(res=="0"){
+				   $("showPhone").innerHTML="该手机号可用";
+				   isRegister=true;
+				}
+				
+			  }
+			}
+		//3.打开连接
+		var phone=$('phone').value;
+		xhr.open("get","/user/checkPhone?phone="+phone,true);
+		//4.发送请求
+		xhr.send(null);
+	  }
+	  //完成注册功能
+		function register(){
+			if(isRegister==true){
+		     //异步注册
+			 //1.创建xhr
+				var xhr=createXhr();
+		     //2.监听
+				xhr.onreadystatechange=function(){
+					if(xhr.readyState==4&&xhr.status==200){
+						var res=xhr.responseText;
+						if(res="注册成功"){
+							location.href="login.html"; 
+						}
+						if(!$('upwd')){
+							$("showUpwd").innerHTML="密码不能为空";
+						}else{
+							$("showUpwd").innerHTML="通过";
+						}
+					}
+				}
+		   //3.打开连接
+			   var upwd=$('upwd').value;
+			   var phone=$('phone').value;
+			   xhr.open("post","/user/register",true);
+			   //4.发送请求
+			   xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+			   xhr.send("phone="+phone+"&upwd="+upwd);
+		   
+			}else{
+				alert('请检查注册信息');
+		    }
+	    
+	    }
+	</script>
+ </body>
+</html>
