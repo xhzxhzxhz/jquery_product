@@ -1,0 +1,243 @@
+*{
+
+	margin:0;
+	padding:0;
+}
+body{
+	background:#F6F6F6;
+}
+.body{
+	background:#fff;
+	height:680px;
+	width:958px;
+	margin:0 auto;
+	overflow:hidden;
+	position:relative;
+}
+a{
+	text-decoration: none;
+}
+
+
+/* 头部 */
+
+.header{
+	background: #F6F6F6;
+	height:80px;
+	text-align: center;
+}
+
+.header img{
+	width:212px;
+	margin: 0 auto;
+	padding-top: 25px;
+}
+.hb{
+	width:958px;
+	height:30px;
+	text-align:center;
+}
+.hb a{
+	vertical-align:middle;
+	text-align:center;
+	font-size:16px;
+	background:#e5e5e5;
+	padding:4px 10px;
+	display:inline-block;
+	color:#000;
+}
+/* 左部 */
+.form{
+	width:590px;
+	height:540px;
+	position:relative;
+	float:left;
+
+}
+.left-form{
+	width:496px;
+	text-align:left;
+	padding:0 0 0 94px;
+	margin-top:35px;
+	float:left;
+	position:absolute;
+	border-right:1px solid #e5e5e5;
+}
+.new-text{
+	width:410px;
+	height:28px;
+	line-height:27px;
+	padding-bottom:10px;
+	text-align:center;
+}
+.new-text a{
+	font-size:20px;
+	color:#000;
+}
+.input-form{
+	height:440px;
+	margin:20px auto 0;
+}
+.input-content{
+	height:75px;
+	width:410px;
+	float:left;
+	vertical-align:middle;
+	color:#3b3b3b;
+}
+.input-content input{
+	width:388px;
+	height:27px;
+	line-height:27px;
+	padding:8px 10px;
+	color:#999;
+	border:1px solid #b1adaa;
+	display:inline;
+	margin:0 22px 0 0;
+}
+.input-content p{
+	color:#0700c5;
+	text-align:left;
+	line-height:23px;
+	padding:0 0 0 20px;
+}
+.input-content #tx_yzm{
+	width:236px;
+	
+}
+.input-content img{
+	vertical-align:middle;
+	margin-right:20px;
+}
+.input-content a{
+	line-height:45px;
+	color:#333;
+	font-size:12px;
+}
+.input-content #message_yzm{
+	width:236px;
+	
+}
+.input-content .a-yzm{
+	width: 121px;
+    height: 42px;
+    border: 1px solid #0700c5;
+    display: block;
+    position: absolute;
+    right: 3px;
+    top: 0;
+    text-align: center;
+    font-size: 14px;
+    color: #0700c5;
+    line-height: 42px;
+}
+.input-content1{
+	padding-top: 40px;
+    text-align: left;
+    position: relative;
+	width: 410px;
+    height: 58px;
+    float: left;
+}
+.input-content1 span{
+	font-size:14px;
+}
+
+.form-btn{
+	height:50px;
+	vertical-align:middle;
+	
+}
+.form-btn .btn{
+	text-align:center;
+	display: block;
+    width: 410px;
+    height: 49px;
+    line-height: 49px;
+    background: #e5e5e5;
+    color: #fff;
+    float: left;
+    font-size: 18px;
+}
+/* 右部 */
+.right{
+	float:right;
+	position:absolute;
+	width:260px;
+	top:100px;
+	right:50px;
+}
+.right .new-user{
+	border-bottom:1px dashed #e5e5e5;
+	padding-bottom: 20px;
+}
+.right .new-user a{
+	position: relative;
+	width: 115px;
+	text-align: center;
+	font-size: 18px;
+	display: block;
+	padding-left: 55px;
+	margin: 18px 0 0;
+	
+}
+.right .l-method{
+	margin-top:30px;
+	text-align: center;
+}
+.right .l-method p{
+	margin-top: 30px;
+
+}
+.right .l-method .spm{
+	margin-top: 30px;
+}
+
+/* 底部 */
+.footer{
+	position:relative;
+	top:20px;
+	height: 157px;
+	width: 960px;
+	margin: 0 auto;
+	overflow: hidden;
+	background: #fff;
+}
+.footer div p.lj{
+	background: #333;
+	height: 44px;
+	line-height: 36px;
+	color: #666;
+	text-align: center;
+	overflow: hidden;
+}
+.footer div p.lj a{
+	float:left;
+	display: inline;
+	vertical-align: middle;
+	width: 105px;
+	text-align: center;
+	border-right: 1px solid #474747;
+	color: #fff;
+	padding: 4px 0;
+	overflow: hidden;
+	font-size: 12px;
+}
+
+.footer div p.last{
+	padding: 12px 0;
+	text-align: center;
+	line-height: 30px;
+	font-size: 12px;
+}
+.copy-tp{
+	text-align:center;
+	padding:0 0 20px;
+}
+.copy-tp a{
+	padding: 0 4px;
+    font-size: 0;
+    display: inline-block;
+    width: 76px;
+    height: 22px;
+}
